@@ -488,18 +488,35 @@ body{
   pointer-events:auto !important;
 }
 /* ==========================
-   DARK MODE PREMIUM APPLE
+   DARK MODE PREMIUM APPLE V2
 ========================== */
 
 html,
 body{
-  background:#0f1115 !important;
+  background:#14161b !important;
   color:#fff;
 }
 
 /* fundo geral */
 .screen{
-  background:#0f1115 !important;
+  background:#14161b !important;
+}
+
+/* cards */
+.mcard,
+.prod-list-row,
+.prod-list-card,
+.premium-form-card,
+.premium-hist-row,
+.premium-top-row,
+.top-row,
+.hist-row,
+.metric-card{
+
+  background:#1d2129 !important;
+  border:1px solid rgba(255,255,255,.03);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.18);
 }
 
 /* textos */
@@ -508,9 +525,9 @@ body{
 .pli-name,
 .prod-name,
 .hist-prod,
-.price-value,
-.hist-price{
-  color:#ffffff !important;
+.hist-price,
+.price-value{
+  color:#fff !important;
 }
 
 .pli-sub,
@@ -519,123 +536,106 @@ body{
 .hist-date,
 .price-label,
 .section-label{
-  color:#9aa0aa !important;
+  color:#9da3ae !important;
 }
 
-/* cards premium */
-.mcard,
-.prod-list-row,
-.prod-list-card,
-.premium-form-card,
-.premium-hist-row,
-.premium-top-row,
-.top-row,
-.hist-row{
+/* caixas internas */
+.price-box{
+  background:#252b35 !important;
+}
 
-  background:#171a21 !important;
-  border:1px solid rgba(255,255,255,.04);
+/* lucro */
+.lucro-box{
+  background:rgba(44,199,128,.12)!important;
+}
+
+.hist-lucro,
+.prod-lucro,
+#meta-pct-lbl{
+  color:#2cc780 !important;
+}
+
+/* badges */
+.stock-badge{
+  background:rgba(44,199,128,.12)!important;
+  color:#3ee092 !important;
+}
+
+/* meta - mantém visual elegante */
+.meta-card,
+.goal-card{
+  background:#1d2129 !important;
+}
+
+#meta-fill{
+  background:#2cc780 !important;
+}
+
+.meta-progress{
+  background:#2c313b !important;
+}
+
+/* botão editar meta */
+.edit-meta-btn{
+  background:#252b35 !important;
+}
+
+/* navbar */
+.bottom-nav{
+  background:#1b2029 !important;
+  border:none !important;
   box-shadow:
-    0 8px 30px rgba(0,0,0,.35);
+    0 -10px 30px rgba(0,0,0,.25);
+}
+
+/* item ativo */
+.nav-item.active{
+  background:#252b35 !important;
+  color:#2cc780 !important;
+  border-radius:24px;
+}
+
+/* botão + */
+.plus-btn{
+  background:#21b57c !important;
+  box-shadow:
+    0 10px 30px rgba(33,181,124,.28);
 }
 
 /* inputs */
 input,
 textarea,
 select{
-  background:#1d212b !important;
+  background:#252b35 !important;
   color:#fff !important;
   border:none !important;
 }
 
-input::placeholder,
-textarea::placeholder{
-  color:#818896 !important;
+input::placeholder{
+  color:#7e8592 !important;
 }
 
-/* barra inferior */
-.bottom-nav{
-  background:rgba(22,24,31,.88) !important;
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.05);
-}
-
-/* item menu */
-.nav-item{
-  color:#9097a4 !important;
-}
-
-.nav-item.active{
-  background:#20252f !important;
-  color:#21b57c !important;
-}
-
-/* botão central */
-.plus-btn{
-  background:#1fb377 !important;
-  box-shadow:
-    0 10px 35px rgba(31,179,119,.35) !important;
-}
-
-/* caixas de preço */
-.price-box{
-  background:#1d212b !important;
-}
-
-/* lucro */
-.lucro-box{
-  background:rgba(33,181,124,.12)!important;
-}
-
-.hist-lucro,
-.prod-lucro,
-#meta-pct-lbl{
-  color:#21b57c !important;
-}
-
-/* badges */
-.stock-badge{
-  background:rgba(33,181,124,.12)!important;
-  color:#33d190 !important;
-}
-
-/* botões de ação */
+/* botões produtos */
 .action-btn{
-  background:#222733 !important;
-  color:#fff !important;
+  background:#252b35 !important;
 }
 
 .sell-btn{
-  background:#159a66 !important;
+  background:#1f9d6e !important;
 }
 
 .edit-btn-prod{
-  background:#2a2f3b !important;
+  background:#353b46 !important;
 }
 
 .delete-btn-prod{
-  background:#332428 !important;
-}
-
-/* meta */
-#meta-fill{
-  background:#21b57c !important;
+  background:#33292c !important;
 }
 
 /* avatar */
 .avatar{
-  background:#1e2430 !important;
+  background:#252b35 !important;
   color:#fff !important;
-}
-
-/* histórico vazio */
-.empty-state{
-  color:#8f96a3 !important;
-}
-
-/* scroll */
-::-webkit-scrollbar{
-  width:6px;
 }
 
 ::-webkit-scrollbar-thumb{
