@@ -631,7 +631,7 @@ function renderHistoricoRecente(){
   }
 
   el.innerHTML =
-    recentes.map(v => `
+  recentes.map(v => `
 
       <div class="hist-row premium-hist-row">
 
