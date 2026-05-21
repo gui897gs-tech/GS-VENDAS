@@ -297,7 +297,7 @@ function renderProdutos(){
 
               <button
   class="action-btn edit-btn-prod"
-  onclick="editarProduto(${index})"
+  onclick="testarLapis()"
 >
   ✏️
 </button>
@@ -969,5 +969,8 @@ function editarProduto(index){
   refreshHome();
 
   alert('Produto atualizado!');
+}
+function testarLapis(){
+  alert('clicou no lápis');
 }
 
