@@ -459,3 +459,13 @@ body{
   font-weight:700;
   cursor:pointer;
 }
+.prod-actions{
+  position:relative;
+  z-index:999;
+}
+
+.action-btn{
+  position:relative;
+  z-index:999;
+  pointer-events:auto;
+}
