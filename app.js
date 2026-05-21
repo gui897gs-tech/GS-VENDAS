@@ -921,46 +921,54 @@ function editarProduto(index){
 
   if(!p) return;
 
-  const nome = prompt(
+  let nome = prompt(
     'Nome do produto:',
     p.nome
   );
 
   if(nome === null) return;
 
-  const categoria = prompt(
+  let categoria = prompt(
     'Categoria:',
-    p.categoria
+    p.categoria || ''
   );
 
-  if(categoria === null) return;
+  if(categoria === null){
+    categoria = p.categoria;
+  }
 
-  const custo = Number(
-    prompt(
-      'Preço investido:',
-      p.custo
-    )
+  let custo = prompt(
+    'Preço investido:',
+    p.custo
   );
 
-  const preco = Number(
-    prompt(
-      'Preço de venda:',
-      p.preco
-    )
+  if(custo === null){
+    custo = p.custo;
+  }
+
+  let preco = prompt(
+    'Preço de venda:',
+    p.preco
   );
 
-  const estoque = Number(
-    prompt(
-      'Quantidade em estoque:',
-      p.estoque
-    )
+  if(preco === null){
+    preco = p.preco;
+  }
+
+  let estoque = prompt(
+    'Quantidade em estoque:',
+    p.estoque
   );
+
+  if(estoque === null){
+    estoque = p.estoque;
+  }
 
   p.nome = nome;
   p.categoria = categoria;
-  p.custo = custo;
-  p.preco = preco;
-  p.estoque = estoque;
+  p.custo = Number(custo);
+  p.preco = Number(preco);
+  p.estoque = Number(estoque);
 
   salvarDados();
 
@@ -969,7 +977,6 @@ function editarProduto(index){
   refreshHome();
 
   alert('Produto atualizado!');
-
 }
 function renderProdList(){
   renderProdutos();
