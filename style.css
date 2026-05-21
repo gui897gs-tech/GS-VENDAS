@@ -700,3 +700,37 @@ input::placeholder{
 .plus-btn{
   background:#1fb377 !important;
 }
+/* ===== NAVBAR DARK PREMIUM ===== */
+
+.navbar{
+  background:#1b2029 !important;
+  background-color:#1b2029 !important;
+
+  border:none !important;
+
+  box-shadow:
+    0 -10px 30px rgba(0,0,0,.35) !important;
+
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+/* ícones/textos */
+.nav-item{
+  color:#9097a4 !important;
+}
+
+/* botão ativo */
+.nav-item.active{
+  background:#2a313d !important;
+  color:#22c07b !important;
+  border-radius:20px;
+}
+
+/* botão + central */
+.nav-item.fab{
+  background:#1fb377 !important;
+  color:#fff !important;
+  box-shadow:
+    0 10px 28px rgba(31,179,119,.35) !important;
+}
