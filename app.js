@@ -296,10 +296,11 @@ function renderProdutos(){
               </button>
 
               <button
-                class="action-btn edit-btn-prod"
-              >
-                ✏️
-              </button>
+  class="action-btn edit-btn-prod"
+  onclick="editarProduto(${index})"
+>
+  ✏️
+</button>
 
               <button
                 class="action-btn delete-btn-prod"
@@ -913,5 +914,60 @@ function limparHistorico(){
   alert(
     'Histórico apagado!'
   );
+}
+function editarProduto(index){
+
+  const p = produtos[index];
+
+  if(!p) return;
+
+  const nome = prompt(
+    'Nome do produto:',
+    p.nome
+  );
+
+  if(nome === null) return;
+
+  const categoria = prompt(
+    'Categoria:',
+    p.categoria
+  );
+
+  if(categoria === null) return;
+
+  const custo = Number(
+    prompt(
+      'Preço investido:',
+      p.custo
+    )
+  );
+
+  const preco = Number(
+    prompt(
+      'Preço de venda:',
+      p.preco
+    )
+  );
+
+  const estoque = Number(
+    prompt(
+      'Quantidade em estoque:',
+      p.estoque
+    )
+  );
+
+  p.nome = nome;
+  p.categoria = categoria;
+  p.custo = custo;
+  p.preco = preco;
+  p.estoque = estoque;
+
+  salvarDados();
+
+  renderProdutos();
+
+  refreshHome();
+
+  alert('Produto atualizado!');
 }
 
