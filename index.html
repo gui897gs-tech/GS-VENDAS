@@ -1,1 +1,457 @@
+<div class="app" id="app">
 
+<!-- ===== HOME ===== -->
+<div class="screen active" id="screen-home">
+  <div class="topbar">
+    <div>
+      <div class="topbar-title">Painel de vendas</div>
+      <div class="topbar-sub" id="today-date"></div>
+    </div>
+    <div class="avatar">GS</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Resumo financeiro</div>
+
+    <div class="metric-stack">
+      <div class="mcard">
+        <div class="ml">
+          <div class="mi green">
+            <i class="ti ti-trending-up"></i>
+          </div>
+          <div>
+            <div class="mlabel">Lucro total</div>
+            <div class="mvalue pos" id="h-lucro">R$ 0,00</div>
+          </div>
+        </div>
+        <span class="badge b-up">mês atual</span>
+      </div>
+
+      <div class="mcard">
+        <div class="ml">
+          <div class="mi blue">
+            <i class="ti ti-report-money"></i>
+          </div>
+          <div>
+            <div class="mlabel">Faturamento</div>
+            <div class="mvalue" id="h-fat">R$ 0,00</div>
+          </div>
+        </div>
+        <span class="badge b-up">mês atual</span>
+      </div>
+
+      <div class="mcard">
+        <div class="ml">
+          <div class="mi amber">
+            <i class="ti ti-arrow-down-circle"></i>
+          </div>
+          <div>
+            <div class="mlabel">Investimento</div>
+            <div class="mvalue" id="h-inv">R$ 0,00</div>
+          </div>
+        </div>
+        <span class="badge b-neu">custo total</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTOQUE -->
+  <div class="section">
+    <div class="section-label">Estoque</div>
+
+    <div class="metric-stack">
+      <div class="mcard">
+        <div class="ml">
+          <div class="mi teal">
+            <i class="ti ti-box"></i>
+          </div>
+
+          <div>
+            <div class="mlabel">Valor em estoque</div>
+            <div class="mvalue" id="h-estq">R$ 0,00</div>
+          </div>
+        </div>
+
+        <span class="badge b-neu" id="h-estq-itens">
+          0 itens
+        </span>
+      </div>
+
+      <div class="mcard">
+        <div class="ml">
+          <div class="mi purple">
+            <i class="ti ti-sparkles"></i>
+          </div>
+
+          <div>
+            <div class="mlabel">
+              Lucro estoque estimado
+            </div>
+            <div class="mvalue pos" id="h-lucest">
+              R$ 0,00
+            </div>
+          </div>
+        </div>
+
+        <span class="badge b-up" id="h-margem">
+          0% margem
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENDAS -->
+  <div class="section">
+    <div class="section-label">Vendas</div>
+
+    <div class="metric-stack">
+      <div class="mcard">
+        <div class="ml">
+          <div class="mi coral">
+            <i class="ti ti-shopping-cart"></i>
+          </div>
+
+          <div>
+            <div class="mlabel">
+              Produtos vendidos
+            </div>
+
+            <div class="mvalue" id="h-vend">
+              0 unidades
+            </div>
+          </div>
+        </div>
+
+        <span class="badge b-neu" id="h-vend-hoje">
+          0 hoje
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- META -->
+  <div class="meta-wrap">
+    <div class="meta-card">
+
+      <div class="meta-header">
+        <div>
+          <div class="meta-title">
+            Meta do mês
+          </div>
+
+          <div class="meta-sub" id="meta-month">
+          </div>
+        </div>
+
+        <button class="edit-btn" onclick="openMeta()">
+          <i class="ti ti-pencil"></i>
+        </button>
+      </div>
+
+      <div class="prog-bg">
+        <div class="prog-fill" id="meta-fill"></div>
+      </div>
+
+      <div class="meta-row">
+        <div>
+          <div class="meta-cur" id="meta-cur-lbl">
+            R$ 0 alcançados
+          </div>
+
+          <div class="meta-goal" id="meta-goal-lbl">
+            de R$ 30.000 de meta
+          </div>
+        </div>
+
+        <div class="meta-pct" id="meta-pct-lbl">
+          0%
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP PRODUTOS -->
+  <div class="section">
+    <div class="section-label">
+      Top produtos mais vendidos
+    </div>
+
+    <div class="top-card" id="top-prods">
+      <div class="empty-state">
+        Nenhuma venda ainda
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTÓRICO -->
+  <div class="section">
+    <div class="section-label">
+      Histórico recente
+    </div>
+
+    <div class="hist-card" id="hist-recent">
+      <div class="empty-state">
+        Nenhuma venda registrada
+      </div>
+    </div>
+
+    <div id="hist-recent-footer"></div>
+  </div>
+</div>
+
+<!-- PRODUTOS -->
+<div class="screen" id="screen-produtos">
+  <div class="page-head">
+    <button class="back-btn" onclick="goHome()">
+      <i class="ti ti-arrow-left"></i>
+    </button>
+
+    <div class="page-title">
+      Produtos
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <div class="search-icon-wrap">
+      <i class="ti ti-search"></i>
+
+      <input
+        id="prod-search"
+        placeholder="Buscar produto..."
+        oninput="renderProdList()"
+      />
+    </div>
+  </div>
+
+  <div class="tag-row" id="cat-tags"></div>
+
+  <div id="prod-list-wrap"></div>
+</div>
+
+<!-- VENDAS -->
+<div class="screen" id="screen-venda">
+  <div class="page-head">
+    <button class="back-btn" onclick="goHome()">
+      <i class="ti ti-arrow-left"></i>
+    </button>
+
+    <div class="page-title">
+      Registrar venda
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <div class="search-icon-wrap">
+      <i class="ti ti-search"></i>
+
+      <input
+        id="venda-search"
+        placeholder="Buscar produto..."
+        oninput="renderVendaList()"
+      />
+    </div>
+  </div>
+
+  <div id="venda-list" class="venda-prod-sel"></div>
+
+  <div class="sale-summary" id="sale-summary">
+    <div>
+      <div class="ss-label">Total</div>
+      <div class="ss-val" id="ss-total">R$ 0,00</div>
+    </div>
+
+    <div>
+      <div class="ss-label">Lucro</div>
+      <div class="ss-lucro" id="ss-lucro">R$ 0,00</div>
+    </div>
+  </div>
+
+  <div style="padding:16px">
+    <button class="btn-primary" onclick="confirmarVenda()">
+      Confirmar venda
+    </button>
+  </div>
+</div>
+
+<!-- HISTÓRICO -->
+<div class="screen" id="screen-historico">
+  <div class="page-head">
+    <button class="back-btn" onclick="goHome()">
+      <i class="ti ti-arrow-left"></i>
+    </button>
+
+    <div class="page-title">
+      Histórico
+    </div>
+  </div>
+
+  <div id="hist-full-wrap"></div>
+</div>
+
+<!-- NAVBAR -->
+  <div class="screen" id="screen-add-prod">
+
+  <div class="page-head">
+    <button class="back-btn"
+      onclick="goTo('screen-produtos')">
+      <i class="ti ti-arrow-left"></i>
+    </button>
+
+    <div class="page-title">
+      Novo produto
+    </div>
+  </div>
+
+  <div class="premium-form-card">
+
+    <div class="premium-form-header">
+      <div>
+        <div class="premium-title">
+          Adicionar produto
+        </div>
+
+        <div class="premium-subtitle">
+          Cadastre um novo item no estoque
+        </div>
+      </div>
+    </div>
+
+    <!-- nome -->
+    <div class="premium-group">
+      <label>Nome do produto</label>
+
+      <input
+        id="p-nome"
+        type="text"
+        placeholder="Ex: Camisa Brasil"
+      >
+    </div>
+
+    <!-- categoria -->
+    <div class="premium-group">
+      <label>Categoria</label>
+
+      <input
+        id="p-cat"
+        type="text"
+        placeholder="Ex: Camisas"
+      >
+    </div>
+
+    <!-- descrição -->
+    <div class="premium-group">
+      <label>Descrição</label>
+
+      <textarea
+        id="p-desc"
+        placeholder="Detalhes do produto"
+      ></textarea>
+    </div>
+
+    <!-- preços -->
+    <div class="premium-grid">
+
+      <div class="premium-group">
+        <label>Investido (R$)</label>
+
+        <input
+          id="p-custo"
+          type="number"
+          placeholder="0,00"
+          oninput="calcularLucro()"
+        >
+      </div>
+
+      <div class="premium-group">
+        <label>Venda (R$)</label>
+
+        <input
+          id="p-preco"
+          type="number"
+          placeholder="0,00"
+          oninput="calcularLucro()"
+        >
+      </div>
+
+    </div>
+
+    <!-- lucro -->
+    <div class="lucro-preview">
+
+      <div>
+        <span>Lucro estimado</span>
+
+        <strong id="p-lucro">
+          R$ 0,00
+        </strong>
+      </div>
+
+      <i class="ti ti-trending-up"></i>
+
+    </div>
+
+    <!-- estoque -->
+    <div class="premium-group">
+      <label>Quantidade em estoque</label>
+
+      <input
+        id="p-estoque"
+        type="number"
+        placeholder="0"
+      >
+    </div>
+
+    <!-- botão -->
+    <button
+      class="premium-save-btn"
+      onclick="salvarProduto()">
+
+      <i class="ti ti-plus"></i>
+
+      Salvar produto
+    </button>
+
+  </div>
+
+</div>
+  
+ <nav class="navbar">
+
+  <button
+    class="nav-item active"
+    id="nav-home"
+    onclick="goHome()">
+
+    <i class="ti ti-home"></i>
+    <span>Início</span>
+  </button>
+
+  <button
+    class="nav-item"
+    id="nav-prods"
+    onclick="goTo('screen-produtos')">
+
+    <i class="ti ti-package"></i>
+    <span>Produtos</span>
+  </button>
+
+  <!-- botão + -->
+  <button
+    class="nav-item fab"
+    onclick="goTo('screen-add-prod')">
+
+    <i class="ti ti-plus"></i>
+  </button>
+
+  <button
+    class="nav-item"
+    id="nav-hist"
+    onclick="goTo('screen-historico')">
+
+    <i class="ti ti-clock"></i>
+    <span>Histórico</span>
+  </button>
+
+</nav>
+
+</div>
