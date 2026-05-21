@@ -642,70 +642,30 @@ input::placeholder{
   background:#2b313d;
   border-radius:999px;
 }
-/* ===== DARK MAIS PREMIUM / MENOS BRANCO ===== */
+/* ===== NAVBAR DARK PREMIUM ===== */
 
-/* card da meta */
-.goal-card,
-.meta-card,
-.meta-box,
-.meta-wrap{
-  background:#1d2129 !important;
-  color:#fff !important;
-}
-
-/* barra da meta */
-.meta-progress,
-.progress-track{
-  background:#2a303a !important;
-}
-
-/* botão editar meta */
-.edit-meta-btn,
-.edit-meta,
-.meta-edit{
-  background:#2a303a !important;
-}
-
-/* badges brancas (itens / hoje / margem) */
-.badge,
-.stock-pill,
-.mini-badge{
-  background:#2a303a !important;
-  color:#d6dbe4 !important;
-}
-
-/* top produtos */
-.premium-top-row{
-  background:#1d2129 !important;
-}
-
-/* histórico */
-.premium-hist-row{
-  background:#1d2129 !important;
-}
-
-/* navbar mais premium */
 .bottom-nav{
-  background:#1c212a !important;
+  background:#1b2029 !important;
+  border:1px solid rgba(255,255,255,.04);
+  box-shadow:
+    0 -8px 30px rgba(0,0,0,.28);
 }
 
-/* item ativo menos claro */
+/* botão ativo */
 .nav-item.active{
   background:#262d38 !important;
+  color:#22c07b !important;
+  border-radius:24px;
 }
 
-/* caixas internas dos cards */
-.price-box{
-  background:#262d38 !important;
+/* ícones apagados */
+.nav-item{
+  color:#8f97a5 !important;
 }
 
-/* cards gerais mais fechados */
-.mcard{
-  background:#1d2129 !important;
-}
-
-/* remove branco exagerado */
-.white-card,
-.card-white{
-  background:#1d2129 !important;
+/* botão + */
+.plus-btn{
+  background:#1fb377 !important;
+  box-shadow:
+    0 10px 28px rgba(31,179,119,.28);
 }
