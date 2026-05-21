@@ -460,12 +460,30 @@ body{
   cursor:pointer;
 }
 .prod-actions{
-  position:relative;
-  z-index:999;
+  display:flex !important;
+  gap:10px;
+  position:relative !important;
+  z-index:99999 !important;
 }
 
 .action-btn{
-  position:relative;
-  z-index:999;
-  pointer-events:auto;
+  position:relative !important;
+  z-index:99999 !important;
+  pointer-events:auto !important;
+}
+
+.prod-list-row{
+  position:relative !important;
+  overflow:visible !important;
+}
+
+.prod-top,
+.prod-left,
+.prod-prices{
+  pointer-events:none;
+}
+
+.prod-actions,
+.prod-actions *{
+  pointer-events:auto !important;
 }
