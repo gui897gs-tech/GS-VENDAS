@@ -457,7 +457,10 @@ function renderHistorico(){
 
   wrap.innerHTML = `
     <div class="prod-list-card">
-      ${vendas.slice().reverse().map(v=>`
+      ${vendas
+  .slice()
+  .reverse()
+  .map((v,index)=>`
         <div class="prod-list-row">
 
           <div style="flex:1">
@@ -470,15 +473,30 @@ function renderHistorico(){
             </div>
           </div>
 
-          <div style="text-align:right">
-            <div class="pli-price">
-              ${fmt(v.total)}
-            </div>
+          <div class="hist-actions">
 
-            <div class="pli-sub">
-              +${fmt(v.lucro)}
-            </div>
-          </div>
+  <div style="text-align:right">
+
+    <div class="pli-price">
+      ${fmt(v.total)}
+    </div>
+
+    <div class="pli-sub">
+      +${fmt(v.lucro)}
+    </div>
+
+  </div>
+
+  <button
+    class="delete-sale-btn"
+    onclick="excluirVenda(
+      vendas.length - 1 - ${index}
+    )"
+  >
+    🗑️
+  </button>
+
+</div>
 
         </div>
       `).join('')}
@@ -613,7 +631,7 @@ function renderHistoricoRecente(){
   }
 
   el.innerHTML =
-    recentes.map(v=>`
+    .map((v,index)=>`
 
       <div class="hist-row premium-hist-row">
 
@@ -836,5 +854,64 @@ function openMeta(){
   refreshHome();
 
   alert('Meta atualizada!');
+}
+function excluirVenda(index){
+
+  const confirmar = confirm(
+    'Deseja excluir esta venda?'
+  );
+
+  if(!confirmar){
+    return;
+  }
+
+  const venda =
+    vendas[index];
+
+  if(!venda){
+    return;
+  }
+
+  // devolve estoque
+  const produto =
+    produtos.find(
+      p => p.id === venda.prodId
+    );
+
+  if(produto){
+    produto.estoque += venda.qty;
+  }
+
+  vendas.splice(index, 1);
+
+  salvarDados();
+
+  renderHistorico();
+
+  refreshHome();
+
+  alert('Venda removida!');
+}
+function limparHistorico(){
+
+  const confirmar = confirm(
+    'Deseja apagar todo histórico?'
+  );
+
+  if(!confirmar){
+    return;
+  }
+
+  vendas = [];
+
+  salvarDados();
+
+  renderHistorico();
+
+  refreshHome();
+
+  alert(
+    'Histórico apagado!'
+  );
 }
 
