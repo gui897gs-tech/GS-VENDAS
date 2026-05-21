@@ -969,9 +969,7 @@ function editarProduto(index){
   refreshHome();
 
   alert('Produto atualizado!');
-}
-function testarLapis(){
-  alert('clicou no lápis');
+
 }
 function renderProdList(){
   renderProdutos();
